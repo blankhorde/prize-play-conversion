@@ -19,6 +19,7 @@
  */
 
 @theme inline {
+  --font-sans: "Plus Jakarta Sans", sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -59,6 +60,12 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-cream: var(--cream);
+  --color-ink: var(--ink);
+  --color-brand: var(--brand);
+  --color-gold: var(--gold);
+  --color-blitz: var(--blitz);
+  --color-lime: var(--lime);
 }
 
 :root {
@@ -95,6 +102,12 @@
   --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
+  --cream: oklch(0.975 0.018 70);
+  --ink: oklch(0.18 0.025 55);
+  --brand: oklch(0.62 0.19 42);
+  --gold: oklch(0.81 0.15 83);
+  --blitz: oklch(0.45 0.23 278);
+  --lime: oklch(0.9 0.2 124);
 }
 
 .dark {
@@ -140,5 +153,27 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-sans);
+    letter-spacing: 0;
   }
+}
+
+@utility ticket-perf {
+  background-image: radial-gradient(circle, var(--cream) 0 2px, transparent 2.5px);
+  background-size: 12px 12px;
+  background-repeat: repeat-x;
+  background-position: center;
+}
+
+@utility ticket-notches {
+  clip-path: polygon(0 0, 100% 0, 100% 42%, calc(100% - 10px) 50%, 100% 58%, 100% 100%, 0 100%, 0 58%, 10px 50%, 0 42%);
+}
+
+@keyframes ticket-rise {
+  from { opacity: 0; transform: translateY(18px) rotate(2deg); }
+  to { opacity: 1; transform: translateY(0) rotate(0); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .ticket-rise { animation: ticket-rise 520ms cubic-bezier(.2,.8,.2,1) both; }
 }
