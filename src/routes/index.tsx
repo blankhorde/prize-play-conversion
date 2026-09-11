@@ -195,7 +195,7 @@ function ScoreTicket({ direction }: { direction: Direction }) {
 
 function BlitzScreen({ direction }: { direction: Direction }) {
   return (
-    <section key={direction} className="flex min-h-screen flex-col bg-blitz pb-20 text-cream">
+    <section key={direction} className="flex h-[min(100dvh,844px)] min-h-[700px] flex-col bg-blitz pb-20 text-cream">
       <KwezaHeader direction={direction} />
       <Placement direction={direction} />
       <ScoreTicket direction={direction} />
