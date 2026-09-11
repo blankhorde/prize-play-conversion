@@ -154,16 +154,12 @@ function ConversionDevice({ direction }: { direction: Direction }) {
   }
 
   return (
-    <div className="px-5 py-3">
+    <div className="px-5 py-4">
       <p className="text-[9px] font-bold uppercase text-cream/35">Tonight settled one thing</p>
-      <div className="mt-2 grid grid-cols-[1fr_auto_1fr_auto_1fr] items-center text-center">
-        <div><b className="text-xl text-lime">#1</b><p className="text-[8px] font-bold uppercase text-cream/40">game rank</p></div>
-        <span className="text-xl font-light text-cream/25">+</span>
-        <div><b className="text-xl">Your form</b><p className="text-[8px] font-bold uppercase text-cream/40">all week</p></div>
-        <span className="text-xl font-light text-cream/25">=</span>
-        <div><b className="text-sm text-lime">Cash race</b><p className="text-[8px] font-bold uppercase text-cream/40">weekly board</p></div>
-      </div>
-      <p className="mt-2 text-center text-[10px] font-semibold text-cream/55">You’ve shown the skill. Now put it where it pays.</p>
+      <p className="mt-2 text-lg font-extrabold leading-tight text-cream">
+        Turn tonight’s momentum into <span className="text-lime">real cash</span> in your bank.
+      </p>
+      <p className="mt-2 text-[10px] font-semibold text-cream/50">You’ve shown the skill. Now put it where it pays.</p>
     </div>
   );
 }
