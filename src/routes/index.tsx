@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ChevronRight, Clock3 } from "lucide-react";
+import { Clock3 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
