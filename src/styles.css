@@ -19,7 +19,8 @@
  */
 
 @theme inline {
-  --font-sans: "Plus Jakarta Sans", sans-serif;
+  --font-sans: "Epilogue", sans-serif;
+  --font-display: "Urbanist", sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -181,5 +182,6 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .ticket-rise { animation: ticket-rise 520ms cubic-bezier(.2,.8,.2,1) both; }
-  h1 { animation: result-settle 420ms cubic-bezier(.2,.8,.2,1) both; }
+  .result-settle { animation: result-settle 420ms cubic-bezier(.2,.8,.2,1) both; }
+  .ticket-stage { animation: ticket-rise 520ms 100ms cubic-bezier(.2,.8,.2,1) both; }
 }
