@@ -15,22 +15,11 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-function KwezaMark() {
-  return (
-    <span aria-hidden="true" className="relative block size-9 text-cream">
-      <span className="absolute inset-y-0 left-0 w-[42%] bg-current" />
-      <span className="absolute right-0 top-0 size-[58%] bg-current [clip-path:polygon(0_0,100%_0,44%_100%,0_100%)]" />
-      <span className="absolute bottom-0 right-0 size-[58%] bg-current [clip-path:polygon(0_0,44%_0,100%_100%,0_100%)]" />
-    </span>
-  );
-}
-
 function Index() {
   return (
     <main className="min-h-screen bg-ink text-cream">
       <section className="mx-auto flex min-h-[100dvh] w-full max-w-[390px] flex-col overflow-hidden bg-blitz px-5 pb-6 pt-5 shadow-2xl">
-        <header className="flex items-center gap-3">
-          <KwezaMark />
+        <header className="flex items-center justify-center">
           <p className="font-display text-base font-extrabold">Kweza · Friday Blitz</p>
         </header>
 
