@@ -63,9 +63,8 @@ function Index() {
         </div>
 
         <div className="mt-auto pt-8">
-          <button type="button" className="group flex w-full items-center justify-center gap-2 rounded-xl bg-lime py-4 font-display text-base font-extrabold text-ink shadow-[0_7px_0_color-mix(in_oklab,var(--lime)_55%,var(--ink))] transition-transform active:translate-y-1">
-            Join the weekly board
-            <ChevronRight className="size-5 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+          <button type="button" className="flex w-full items-center justify-center gap-2 rounded-xl bg-lime py-4 font-extrabold text-ink shadow-[0_7px_0_color-mix(in_oklab,var(--lime)_55%,var(--ink))] transition-transform active:translate-y-1">
+            Join the weekly board <ChevronRight className="size-4" aria-hidden="true" />
           </button>
           <button type="button" className="mt-3 w-full py-2 text-sm font-semibold text-cream/50">Maybe later</button>
         </div>
