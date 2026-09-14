@@ -93,6 +93,7 @@ function LivingPrizeTicket({ prizes, paidPositions }: { prizes: Prize[]; paidPos
   if (!activeBeat) return null;
 
   const prizeBeat = activeBeat.kind === "prize" ? activeBeat.prize : null;
+  const crowdCount = activeBeat.kind === "crowd" ? activeBeat.remaining : 0;
 
   return (
     <div className="living-ticket-wrap" aria-live="polite" aria-atomic="true">
@@ -128,7 +129,7 @@ function LivingPrizeTicket({ prizes, paidPositions }: { prizes: Prize[]; paidPos
               <div>
                 <p className="text-[9px] font-extrabold uppercase text-gold">The prizes keep going</p>
                 <p className="font-display mt-1 text-[25px] font-black leading-tight text-cream">
-                  …and {activeBeat.remaining} more cash prizes
+                  …and {crowdCount} more cash prizes
                 </p>
                 <p className="mt-1.5 text-[11px] font-medium text-cream/55">More places. More winners paid.</p>
               </div>
