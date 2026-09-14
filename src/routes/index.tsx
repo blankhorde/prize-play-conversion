@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { CalendarDays, Trophy, Zap } from "lucide-react";
+import { Banknote } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 
 export const Route = createFileRoute("/")({
@@ -97,7 +97,7 @@ function LivingPrizeTicket({ prizes, paidPositions }: { prizes: Prize[]; paidPos
   return (
     <div className="living-ticket-wrap" aria-live="polite" aria-atomic="true">
       <article className="ticket-notches overflow-hidden rounded-xl bg-ink shadow-xl">
-        <div className="flex min-h-[112px] items-stretch">
+        <div className="flex items-stretch">
           <div key={`copy-${beatIndex}`} className="ticket-copy-change min-w-0 flex-1 px-6 py-4">
             <p className="text-[10px] font-bold uppercase text-cream/50">
               {prizeBeat
@@ -129,68 +129,68 @@ function LivingPrizeTicket({ prizes, paidPositions }: { prizes: Prize[]; paidPos
   );
 }
 
-function SheetButton({ children, variant }: { children: string; variant: "primary" | "secondary" }) {
-  return (
-    <button
-      type="button"
-      className={
-        variant === "primary"
-          ? "h-12 w-full rounded-xl bg-brand text-sm font-extrabold text-primary-foreground"
-          : "h-12 w-full rounded-xl border border-ink bg-transparent text-sm font-extrabold text-ink"
-      }
-    >
-      {children}
-    </button>
-  );
-}
-
 function Index() {
   return (
-    <main className="flex min-h-screen items-end justify-center bg-ink/95 text-ink sm:items-center sm:py-6">
-      <section className="offer-sheet flex min-h-[100dvh] w-full max-w-[390px] flex-col bg-cream px-5 pb-5 pt-3 sm:min-h-0 sm:rounded-[24px]">
-        <div className="mx-auto h-1 w-10 rounded-full bg-ink/20" aria-hidden="true" />
-
-        <header className="mt-5 flex items-center justify-between gap-4">
-          <p className="text-[10px] font-extrabold uppercase">This week’s board</p>
-          <p className="text-[10px] font-bold text-ink/55">Ends Sunday 8:00 PM</p>
-        </header>
-
-        <h1 className="font-display mt-3 text-[31px] font-black leading-[1.05]">
-          Real cash. Real rivals.
-          <br />
-          Every week.
-        </h1>
-
-        <div className="mt-4">
-          <LivingPrizeTicket prizes={samplePrizes} paidPositions={totalPaidPositions} />
-        </div>
-
-        <div className="mt-3 grid grid-cols-3 gap-2">
-          {[
-            { icon: Trophy, title: "Top 10", detail: "get paid" },
-            { icon: CalendarDays, title: "Sunday", detail: "winners crowned" },
-            { icon: Zap, title: "All week", detail: "points stack" },
-          ].map(({ icon: Icon, title, detail }) => (
-            <div key={title} className="rounded-lg border border-ink/10 bg-card px-2.5 py-2.5">
-              <Icon className="mb-2 size-3.5 text-brand" strokeWidth={2.5} aria-hidden="true" />
-              <p className="text-[11px] font-extrabold">{title}</p>
-              <p className="mt-0.5 text-[9px] font-medium text-ink/50">{detail}</p>
+    <main className="min-h-screen bg-ink/70 text-ink">
+      <section className="relative mx-auto flex min-h-screen w-full max-w-[390px] flex-col justify-end overflow-hidden bg-ink/70 shadow-2xl">
+        <div aria-hidden="true" className="absolute inset-0 bg-cream opacity-25" />
+        <div className="ticket-rise relative rounded-t-[28px] bg-cream pb-5">
+          <div className="mx-auto mt-2 h-1.5 w-10 rounded-full bg-ink/15" aria-hidden="true" />
+          <header className="px-5 pt-4">
+            <div className="flex items-center justify-between text-xs font-bold">
+              <span className="uppercase text-brand">This week&apos;s board</span>
+              <span className="text-ink/45">Ends Sunday 8 PM</span>
             </div>
-          ))}
-        </div>
+            <h1 className="mt-2 text-[30px] font-extrabold leading-[1.05]">
+              Real cash. Real rivals.
+              <br />
+              One Sunday.
+            </h1>
+          </header>
 
-        <div className="mt-3 rounded-lg border border-ink/10 bg-card px-3.5 py-3">
-          <p className="text-[11px] font-semibold leading-relaxed">
-            Winners get real money straight to their bank account — not points to cash out.
-          </p>
-        </div>
+          <div className="relative mt-5 h-40 px-5">
+            <div className="absolute left-7 right-7 top-0 rotate-[-4deg] rounded-xl bg-brand px-5 py-3 text-xs font-bold text-cream">
+              2nd place · ₦30,000
+            </div>
+            <div className="absolute left-7 right-7 top-6 rotate-[3deg] rounded-xl border border-ink/10 bg-card px-5 py-3 text-xs font-bold text-ink/45">
+              3rd place · ₦20,000
+            </div>
+            <div className="absolute inset-x-5 top-10">
+              <LivingPrizeTicket prizes={samplePrizes} paidPositions={totalPaidPositions} />
+            </div>
+          </div>
 
-        <div className="mt-auto space-y-2.5 pt-4">
-          <SheetButton variant="primary">Pay with Airtime</SheetButton>
-          <SheetButton variant="secondary">Pay with Paystack</SheetButton>
-          <p className="text-center text-[9px] font-medium text-ink/45">
-            You&apos;ll see the exact price before you pay anything.
-          </p>
+          <div className="grid grid-cols-3 gap-2 px-5">
+            {[
+              ["₦1.8M", "paid last month"],
+              ["12,480", "players this week"],
+              ["Sunday", "winners crowned"],
+            ].map(([title, detail]) => (
+              <div key={title} className="rounded-xl bg-card py-3 text-center shadow-sm">
+                <b className="text-base text-brand">{title}</b>
+                <p className="mt-1 text-[9px] font-semibold text-ink/45">{detail}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mx-5 mt-3 flex gap-3 rounded-xl bg-card p-3 shadow-sm">
+            <Banknote className="size-5 shrink-0 text-brand" aria-hidden="true" />
+            <p className="text-xs font-semibold leading-relaxed text-ink/65">
+              Winners get real money straight to their bank account — not points to cash out.
+            </p>
+          </div>
+
+          <div className="px-5 pt-4">
+            <button type="button" className="w-full rounded-xl bg-ink py-3.5 text-sm font-bold text-cream">
+              Pay with airtime
+            </button>
+            <button type="button" className="mt-2 w-full rounded-xl border border-ink/15 py-3 text-sm font-bold">
+              Pay with Paystack
+            </button>
+            <p className="mt-2 text-center text-[10px] font-semibold text-ink/40">
+              You&apos;ll see the exact price before you pay anything.
+            </p>
+          </div>
         </div>
       </section>
     </main>

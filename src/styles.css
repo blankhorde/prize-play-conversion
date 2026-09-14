@@ -187,7 +187,6 @@
 
 .living-ticket-wrap {
   position: relative;
-  min-height: 112px;
 }
 
 .ticket-copy-change {
@@ -196,10 +195,6 @@
 
 @media (prefers-reduced-motion: reduce) {
   .ticket-copy-change { animation: none; }
-}
-
-@media (min-width: 640px) {
-  .offer-sheet { min-height: 800px; }
 }
 
 @media (prefers-reduced-motion: no-preference) {
