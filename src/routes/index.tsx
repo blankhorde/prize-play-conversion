@@ -77,7 +77,6 @@ function LivingPrizeTicket({ prizes, paidPositions }: { prizes: Prize[]; paidPos
   const isStatic = paidPositions <= 1 || beats.length <= 1 || reducedMotion;
 
   useEffect(() => {
-    setBeatIndex(0);
     if (isStatic) return;
 
     const delay = beatIndex === 0 ? 3200 : beatIndex === beats.length - 1 ? 3000 : 2700;
