@@ -96,61 +96,35 @@ function LivingPrizeTicket({ prizes, paidPositions }: { prizes: Prize[]; paidPos
 
   return (
     <div className="living-ticket-wrap" aria-live="polite" aria-atomic="true">
-      <div className="living-ticket-glow" aria-hidden="true" />
-      <article className="living-ticket ticket-notches">
-        <div className="ticket-sheen" aria-hidden="true" />
-        <div key={beatIndex} className="ticket-beat">
-          {prizeBeat ? (
-            <>
-              <div className="min-w-0 flex-1 px-6 py-5">
-                <p className="text-[9px] font-extrabold uppercase text-cream/50">
-                  {prizeBeat.place === 1 ? "This week’s top prize" : `${ordinal(prizeBeat.place)} place prize`}
-                </p>
-                <p className="font-display mt-1.5 whitespace-nowrap text-[34px] font-black leading-none text-cream">
-                  {formatNaira(prizeBeat.amount)}
-                </p>
-                <p className="mt-2 text-[11px] font-medium text-cream/60">
-                  paid to the #{prizeBeat.place} player
-                </p>
-              </div>
-              <div className="ticket-stub relative flex w-[92px] shrink-0 flex-col items-center justify-center border-l border-dashed border-ink/45 bg-gold text-ink">
-                <span className="font-display text-[27px] font-black leading-none">{ordinal(prizeBeat.place)}</span>
-                <span className="mt-1 text-[9px] font-extrabold uppercase">Place</span>
-              </div>
-            </>
-          ) : (
-            <div className="crowd-beat flex w-full items-center gap-5 px-6 py-5">
-              <div className="crowd-mark" aria-hidden="true">
-                <span />
-                <span />
-                <span />
-              </div>
-              <div>
-                <p className="text-[9px] font-extrabold uppercase text-gold">The prizes keep going</p>
-                <p className="font-display mt-1 text-[25px] font-black leading-tight text-cream">
-                  …and {crowdCount} more cash prizes
-                </p>
-                <p className="mt-1.5 text-[11px] font-medium text-cream/55">More places. More winners paid.</p>
-              </div>
-            </div>
-          )}
+      <article className="ticket-notches overflow-hidden rounded-xl bg-ink shadow-xl">
+        <div className="flex min-h-[112px] items-stretch">
+          <div key={`copy-${beatIndex}`} className="ticket-copy-change min-w-0 flex-1 px-6 py-4">
+            <p className="text-[10px] font-bold uppercase text-cream/50">
+              {prizeBeat
+                ? prizeBeat.place === 1
+                  ? "This week’s top prize"
+                  : `${ordinal(prizeBeat.place)} place prize`
+                : "More winners this week"}
+            </p>
+            <p className={`mt-1 font-display font-extrabold leading-none text-cream ${prizeBeat ? "text-3xl" : "text-[22px]"}`}>
+              {prizeBeat ? formatNaira(prizeBeat.amount) : `…and ${crowdCount} more`}
+            </p>
+            <p className="mt-1.5 text-[11px] font-semibold text-cream/50">
+              {prizeBeat ? `paid to the #${prizeBeat.place} player` : "cash prizes"}
+            </p>
+            {isStatic && paidPositions > 1 ? (
+              <p className="mt-1 text-[9px] font-semibold text-cream/40">+{paidPositions - 1} more win cash</p>
+            ) : null}
+          </div>
+          <div className="ticket-perf w-4 shrink-0 opacity-40" aria-hidden="true" />
+          <div key={`stub-${beatIndex}`} className="ticket-copy-change grid w-24 shrink-0 place-content-center bg-gold text-center text-ink">
+            <b className={prizeBeat ? "font-display text-xl font-extrabold" : "font-display text-lg font-extrabold"}>
+              {prizeBeat ? ordinal(prizeBeat.place) : `Top ${paidPositions}`}
+            </b>
+            <span className="text-[9px] font-bold uppercase">{prizeBeat ? "Place" : "Paid"}</span>
+          </div>
         </div>
       </article>
-
-      {isStatic && remaining > 0 ? (
-        <p className="absolute bottom-2 left-6 text-[9px] font-bold text-cream/55">+{remaining} more win cash</p>
-      ) : null}
-
-      {!isStatic ? (
-        <div className="mt-2.5 flex justify-center gap-1.5" aria-hidden="true">
-          {beats.map((beat, index) => (
-            <span
-              key={beat.kind === "prize" ? beat.prize.place : "crowd"}
-              className={`h-1 rounded-full transition-all duration-500 ${index === beatIndex ? "w-5 bg-brand" : "w-1 bg-ink/15"}`}
-            />
-          ))}
-        </div>
-      ) : null}
     </div>
   );
 }
