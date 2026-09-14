@@ -1,6 +1,6 @@
 # Roadmap
 
-- [x] Present three distinct 390px Friday Blitz close-screen directions.
-- [x] Preserve the unchanged weekly-board CTA; keep claim timing as passive status, never an action.
-- [x] Explore distinct placement-number and ticket-bottom momentum devices that lead into the CTA.
-- [x] Implement all three directions as switchable screens for review.
+- [x] Explore three distinct living prize-ticket motion directions in the fixed offer sheet.
+- [x] Implement the selected cinematic reveal using server-shaped prize data.
+- [x] Preserve the complete offer-sheet order and copy outside the ticket slot.
+- [x] Support single-prize and reduced-motion static states.
