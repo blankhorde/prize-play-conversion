@@ -96,9 +96,9 @@ function LivingPrizeTicket({ prizes, paidPositions }: { prizes: Prize[]; paidPos
 
   return (
     <div className="living-ticket-wrap" aria-live="polite" aria-atomic="true">
-      <article className="ticket-notches overflow-hidden rounded-xl bg-ink shadow-xl">
-        <div className="flex items-stretch">
-          <div key={`copy-${beatIndex}`} className="ticket-copy-change min-w-0 flex-1 px-6 py-4">
+      <article className="ticket-notches h-[104px] overflow-hidden rounded-xl bg-ink shadow-xl">
+        <div className="flex h-full items-stretch">
+          <div key={`copy-${beatIndex}`} className="ticket-copy-change flex min-w-0 flex-1 flex-col justify-center px-6 py-3">
             <p className="text-[10px] font-bold uppercase text-cream/50">
               {prizeBeat
                 ? prizeBeat.place === 1
