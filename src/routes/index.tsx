@@ -117,11 +117,13 @@ function LivingPrizeTicket({ prizes, paidPositions }: { prizes: Prize[]; paidPos
             ) : null}
           </div>
           <div className="ticket-perf w-4 shrink-0 opacity-40" aria-hidden="true" />
-          <div key={`stub-${beatIndex}`} className="ticket-copy-change grid w-24 shrink-0 place-content-center bg-gold text-center text-ink">
-            <b className={prizeBeat ? "font-display text-xl font-extrabold" : "font-display text-lg font-extrabold"}>
+          <div className="grid w-24 shrink-0 place-content-center bg-gold text-center text-ink">
+            <b key={`stub-place-${beatIndex}`} className="ticket-copy-change font-display text-xl font-extrabold">
               {prizeBeat ? ordinal(prizeBeat.place) : `Top ${paidPositions}`}
             </b>
-            <span className="text-[9px] font-bold uppercase">{prizeBeat ? "Place" : "Paid"}</span>
+            <span key={`stub-label-${beatIndex}`} className="ticket-copy-change text-[9px] font-bold uppercase">
+              {prizeBeat ? "Place" : "Paid"}
+            </span>
           </div>
         </div>
       </article>
